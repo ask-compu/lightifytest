@@ -257,7 +257,7 @@ class Lightify:
         return self.build_global_command(COMMAND_ALL_LIGHT_STATUS, struct.pack("<B", flag))
 
     def build_light_status(self, light):
-        return light.build_command(COMMAND_LIGHT_STATUS, "")
+        return light.build_command(COMMAND_LIGHT_STATUS, b'')
 
 
     def build_group_list(self):
