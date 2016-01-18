@@ -276,7 +276,7 @@ class Lightify:
             payload = data[pos:pos+18]
 
             (idx, name) = struct.unpack("<H16s", payload)
-            name = name.replace('\0', "")
+            name = str(name).replace('\0', "")
 
             groups[idx] = name
             self.__logger.debug("Idx %d: '%s'", idx, name)
@@ -303,7 +303,7 @@ class Lightify:
         data = self.recv()
         payload = data[7:]
         (idx, name, num) = struct.unpack("<H16sB", payload[:19])
-        name = name.replace('\0', "")
+        name = str(name).replace('\0', "")
         self.__logger.debug("Idx %d: '%s' %d", idx, name, num)
         for i in range(0,num):
             pos = 7 + 19 + i * 8
