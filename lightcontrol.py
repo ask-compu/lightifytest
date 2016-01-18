@@ -43,7 +43,7 @@ def main(argv):
 
     conn.update_all_light_status()
     conn.update_group_list()
-    for (name, group) in conn.groups().iteritems():
+    for (name, group) in conn.groups().items():
         logger.info("group: %s %s", name, group)
 
     print("keys:" + str(conn.groups().keys()))
@@ -70,9 +70,9 @@ def main(argv):
     #sys.exit(0)
 
 
-    for (addr, light) in conn.lights().iteritems():
-        #print "%x %d %d %d %s %s" % (addr, light.on(), light.lum(), light.temp(), light.rgb(), light)
-        print(str(addr + light.on() + light.lum() + light.temp() + light.rgb() + light))
+    for (addr, light) in conn.lights().items():
+        print("%x %d %d %d %s %s" % (addr, light.on(), light.lum(), light.temp(), light.rgb(), light))
+        #print(str(addr + light.on() + light.lum() + light.temp() + light.rgb() + light))
 
     sys.exit(0)
 
