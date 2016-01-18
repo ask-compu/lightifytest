@@ -376,7 +376,7 @@ class Lightify:
             self.__logger.debug("%d %d %d", i, pos, len(payload))
 
             (a,addr,status,name,extra) = struct.unpack("<HQ16s16sQ", payload)
-            name = name.replace('\0', "")
+            name = str(name).replace('\0', "")
 
             self.__logger.debug('light: %x %x %s %x', a, addr, name, extra)
             if addr in old_lights:
