@@ -358,7 +358,7 @@ class Lightify:
         return (on, lum, temp, red, green, blue)
 
     def update_all_light_status(self):
-        data = str(self.build_all_light_status(1))
+        data = bytes(self.build_all_light_status(1))
         self.send(data)
         data = self.recv()
         (num,) = struct.unpack("<H", data[7:9])
