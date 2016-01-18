@@ -336,7 +336,7 @@ class Lightify:
             data = self.__sock.recv(expected)
             expected = expected - len(data)
             string = string + str(data)
-        self.__logger.debug('received "%s"', binascii.hexlify(string))
+        self.__logger.debug('received "%s"', string)
         return data
 
     def update_light_status(self, light):
