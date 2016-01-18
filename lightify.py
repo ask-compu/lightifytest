@@ -265,7 +265,7 @@ class Lightify:
 
     def group_list(self):
         groups = {}
-        data = str(self.build_group_list())
+        data = bytes(self.build_group_list())
         self.send(data)
         data = self.recv()
         (num,) = struct.unpack("<H", data[7:9])
@@ -298,7 +298,7 @@ class Lightify:
 
     def group_info(self, group):
         lights = []
-        data = str(self.build_group_info(group))
+        data = bytes(self.build_group_info(group))
         self.send(data)
         data = self.recv()
         payload = data[7:]
