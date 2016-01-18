@@ -221,7 +221,7 @@ class Lightify:
     def build_global_command(self, command, data):
         length = 6 + len(data)
 
-        return struct.pack("<H6B", length, 0x02, command, 0, 0, 0x7, self.next_seq()) + bytes(data)
+        return struct.pack("<H6B", length, 0x02, command, 0, 0, 0x7, self.next_seq()) + data
 
     def build_basic_command(self, flag, command, group_or_light, data):
         length = 14 + len(data)
@@ -261,7 +261,7 @@ class Lightify:
 
 
     def build_group_list(self):
-        return self.build_global_command(COMMAND_GROUP_LIST, "")
+        return self.build_global_command(COMMAND_GROUP_LIST, b'')
 
     def group_list(self):
         groups = {}
