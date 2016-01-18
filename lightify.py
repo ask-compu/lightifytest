@@ -251,7 +251,7 @@ class Lightify:
         return item.build_command(COMMAND_COLOUR, struct.pack("<BBBBH", red, green, blue, 0xff, time))
 
     def build_group_info(self, group):
-        return self.build_command(COMMAND_GROUP_INFO, group, "")
+        return self.build_command(COMMAND_GROUP_INFO, group, b'')
 
     def build_all_light_status(self, flag):
         return self.build_global_command(COMMAND_ALL_LIGHT_STATUS, struct.pack("<B", flag))
